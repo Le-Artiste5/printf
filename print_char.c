@@ -7,9 +7,13 @@
  * Return: length of string
  */
 
-int print_char(int c)
+int print_char(va_list c)
 {
-	int lent = write(STDOUT_FILENO, &c, 1);
+	char strr;
 
-	return (lent);
+	strr = va_arg(c, int);
+
+	_putchar(strr);
+
+	return(1);
 }

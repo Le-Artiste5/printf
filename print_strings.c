@@ -8,31 +8,29 @@
  * Return: length of string minus 1
  */
 
-int print_strings(const char *strr)
+int print_strings(va_list strr)
 {
-	int back;
-	int lent = 0;
-	const char *n_string = "(null)";
+	int a;
+	int len;
+	char *c;
 
-	if (strr == NULL)
-	{
-		strr = n_string;
-	}
-	while (*strr != '\0')
-	{
-		back = write(STDOUT_FILENO, strr++, 1);
-		if (back == -1)
-		{
-			return (-1);
-		}
-		lent += back;
-	}
-	if (back == -1)
-	{
-		return (-1);
-	}
-	lent += back;
+	c = va_arg(strr, char *);
 
-	return (lent - 1);
-
+	if (c == NULL)
+	{
+		len = _strlen(c);
+		c = "(null)";
+		for (a = 0; a < len; a++)
+			_putchar(c[a]);
+		return (len);
+	}
+	else
+	{
+		len = _strlen(c);
+		for (a = 0; a < length; ++)
+			_putchar(c[a]);
+		return (len);
+	}
 }
+
+

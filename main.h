@@ -6,10 +6,14 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
-
-int check_cases(const char *format, va_list other_args);
-int print_strings(const char *strr);
-int print_char(int c);
+int print_strings(va_list strr);
+int print_char(va_list c);
+int _strlen(char *strr);
+int _strlength(const char *strr);
+int print_p(void);
+int _putchar(char c);
+print_int_i(va_list argt);
+print_intdec(va_list argt);
 int _printf(const char *format, ...);
 
 
