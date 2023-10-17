@@ -1,2 +1,2 @@
-# printf
+printf
 custom printf
