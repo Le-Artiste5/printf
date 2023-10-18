@@ -11,6 +11,20 @@ int print_int_i(va_list arg, int put)
 	int numb = va_arg(arg, int);
 	int tem = numb;
 
+	if (numb < 0)
+	{
+		put += _putchar('-');
+		numb = -numb;
+
+		tem = tem;
+	}
+
+	while (tem != 0)
+	{
+		digs++;
+		tem /= 10;
+	}
+
 	while (digs > 0)
 	{
 		int a;
@@ -27,18 +41,7 @@ int print_int_i(va_list arg, int put)
 		numb -= dig * pow;
 		digs++;
 	}
-	if (numb < 0)
-	{
-		put += _putchar('-');
-		numb = -numb;
 
-		tem = numb;
-	}
-
-	do {
-		digs++;
-		tem /= 10;
-	} while (tem != 0);
 
 	return (put);
 }
