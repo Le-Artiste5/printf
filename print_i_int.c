@@ -1,45 +1,46 @@
 #include "main.h"
-/*
- * print_int_i - prints an integer
- * @argt: argument
+/**
+ * print_int_i -  prints an integer of number
+ * @put: printed char
+ * @arg: argument
  * Return: a number
  */
-int print_int_i(va_list argt)
+int print_int_i(va_list arg, int put)
 {
-	int m = va_arg(argt, int);
-	int a = 1;
-	int fig, final = m % 10, dig, exp = 1;
-	
-	m = m / 10;
-	fig = m;
-	
-	if (final < 0)
+	int dig, digs;
+	int numb = va_arg(arg, int);
+	int tem = numb;
+
+	while (digs > 0)
 	{
-		_putchar('-');
-		fig = -fig;
-		final = -final;
-		m = -m;
-		a++;
+		int a;
+		int pow = 1;
+
+		for (a = 0; a < digs; a++)
+		{
+			pow *= 10;
+		}
+		dig = numb / pow;
+
+		put += _putchar(dig + '0');
+
+		numb -= dig * pow;
+		digs++;
 	}
-	if (fig > 0)
+	if (numb < 0)
 	{
-		while (fig / 10 != 0)
-		{
-			exp = exp * 10;
-			fig = fig / 10;
-		}
-		fig = m;
-		
-		while (exp > 0)
-		{
-			dig = fig / exp;
-			_putchar(dig + '0');
-			fig = fig - (dig * exp);
-			exp = exp / 10;
-			a++;
-		}
+		put += _putchar('-');
+		numb = -numb;
+
+		tem = numb;
 	}
-	
-	_putchar(final + '0');
-	return (a);
+
+	do {
+		digs++;
+		tem /= 10;
+	} while (tem != 0);
+
+	return (put);
 }
+
+

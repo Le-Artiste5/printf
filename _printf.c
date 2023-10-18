@@ -9,28 +9,33 @@
 
 int _printf(const char *format, ...)
 {
-	int char_length = 0;
 
-	va_list other_args;
+	va_list arg;
 
-	va_start(other_args, format);
+	int put = 0;
 
-	if (format == NULL)
-		return (-1);
+	va_start(arg, format);
 
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
 			format++;
-			char_length += check_cases(format, other_args);
+			put = f_check(format, arg, put);
+			format++;
 		}
+
 		else
-			char_length += write(STDOUT_FILENO, &(*format), 1);
-		format++;
+		{
+			_putchar(*format);
+			put++;
+
+			format++;
+		}
 	}
 
-	va_end(other_args);
+	va_end(arg);
+	return (put);
 
-	return (char_length);
 }
+

@@ -2,35 +2,24 @@
 #include <string.h>
 #include <stdlib.h>
 /**
- * print_strings - prints strings
- * @strr: string printed
- *
+ * print_strings - prints arry of chars
+ * @arg: argument
+ * @put: displayed char
  * Return: length of string minus 1
  */
 
-int print_strings(va_list strr)
+int print_strings(va_list arg, int put)
 {
-	int a;
-	int len;
-	char *c;
+	char *strr = va_arg(arg, char *);
 
-	c = va_arg(strr, char *);
+	while (*strr != '\0')
+	{
+		_putchar(*strr);
+		strr++;
+		put++;
+	}
 
-	if (c == NULL)
-	{
-		len = _strlen(c);
-		c = "(null)";
-		for (a = 0; a < len; a++)
-			_putchar(c[a]);
-		return (len);
-	}
-	else
-	{
-		len = _strlen(c);
-		for (a = 0; a < length; ++)
-			_putchar(c[a]);
-		return (len);
-	}
+	return (put);
 }
 
 

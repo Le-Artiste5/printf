@@ -6,16 +6,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
-int print_strings(va_list strr);
-int print_char(va_list c);
-int _strlen(char *strr);
-int _strlength(const char *strr);
-int print_p(void);
+int f_check(const char *format, va_list arg, int put);
 int _putchar(char c);
-print_int_i(va_list argt);
-print_intdec(va_list argt);
+int print_int_i(va_list arg, int put);
 int _printf(const char *format, ...);
-
+int print_char(va_list arg, int put);
+int print_strings(va_list arg, int put);
 
 
 #endif

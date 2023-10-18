@@ -2,18 +2,16 @@
 #include "main.h"
 /**
  * print_char - prints a character
- * @c: character
- *
+ * @arg: argument
+ * @put: printe char
  * Return: length of string
  */
 
-int print_char(va_list c)
+int print_char(va_list arg, int put)
 {
-	char strr;
+	int charact = va_arg(arg, int);
 
-	strr = va_arg(c, int);
+	_putchar(charact);
 
-	_putchar(strr);
-
-	return(1);
+	return (put + 1);
 }
