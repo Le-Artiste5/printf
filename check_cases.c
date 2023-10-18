@@ -11,9 +11,9 @@ int f_check(const char *format, va_list arg, int put)
 {
 	switch (*format)
 	{
-		case 'i':
-
 		case 'd':
+
+		case 'i':
 		put = print_int_i(arg, put);
 		break;
 
